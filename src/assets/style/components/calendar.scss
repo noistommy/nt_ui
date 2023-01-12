@@ -1,0 +1,193 @@
+$issue_red: #D75757;
+$calendarBorderColor: #d7dae2;
+.ga-datepicker {
+  &.fluid {
+    width: 100%;
+  }
+  input {
+    cursor: pointer;
+    width: 100%;
+  }
+}
+.ga-calendar {
+  display: inline-block;
+  //background-color: #d4d4d4;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #fff;
+  //margin: 20px;
+  .calendar-head {
+    background-color: #fff;
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #ebebeb;
+    .current-date {
+      padding: 0 10px;
+      flex-grow: 1;
+      span {
+        display: block;
+        &.now {
+          color: #454545;
+          i {
+            color: #ebebeb;
+          }
+        }
+      }
+    }
+    .control-btn {
+      cursor: pointer;
+      background-color: #ebebeb;
+      padding: 8px;
+      border-radius: 50%;
+      line-height: 1;
+      vertical-align: baseline;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      margin: 0 5px;
+    }
+  }
+  .week-wrapper,
+  .cell-wrapper {
+    --grid-size: 7;
+    --cell-size: 42px;
+    --cell-gap: 1px;
+    position: relative;
+    width: calc((var(--cell-size) + var(--cell-gap)) * 7 + 1px);
+    height: calc((var(--cell-size) + var(--cell-gap)) * 7 + 1px);
+    background-color: #fff;
+    .cell {
+      background-color: #fff;
+      position: absolute;
+      min-width: var(--cell-size);
+      height: var(--cell-size);
+      top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+      left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+      transition: 250ms linear;
+      color: #333333;
+      &.today {
+        color: #333333;
+      }
+      &.disabled {
+        pointer-events: none;
+        color: #c4c4c4;
+        opacity: .5;
+        .today {
+          display: none;
+        }
+      }
+      &:before {
+        //content: '';
+        //position: absolute;
+        //inset: 2px;
+        //background-color: #fff;
+        //opacity: 0.3;
+      }
+      &:after {
+        content: attr(data-name);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 900;
+        font-size: 0.8em;
+      }
+      &.sun:not(.disabled),
+      &.sun:after {
+        color: #dc4444;
+      }
+      &.sat:not(.disabled),
+      &.sat:after {
+        color: #5b81cf;
+      }
+      //&.today:before {
+      //  background-color: $primary;
+      //  border-radius: 50%;
+      //}
+      //&.today:after {
+      //  color: #ffffff;
+      //}
+      .tile {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 900;
+        font-size: 0.8em;
+        color: inherit;
+      }
+      .today {
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ebebeb;
+      }
+      .highlight {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &.grid {
+      display: grid;
+      width: calc((var(--cell-size) + var(--cell-gap)) * 7 + 1px);
+      grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+      grid-template-columns: repeat(var(--grid-size), 1fr);
+      grid-gap: var(--cell-gap);
+      .cell {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  .week-wrapper {
+    display: flex;
+    gap: 2px;
+    margin: 2px;
+    height: auto;
+    font-size: 0.8em;
+    .week-cell {
+      cursor: default;
+      position: relative;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1em;
+      vertical-align: baseline;
+    }
+  }
+  &.bordered .cell-wrapper {
+    background-color: $calendarBorderColor;
+    border: 1px solid $calendarBorderColor;
+  }
+  &.selection {
+    .cell {
+      cursor: pointer;
+      &.selected:not(.disabled) {
+        .tile {
+          font-size: 1rem;
+          font-weight: 900;
+          color: #ffffff;
+        }
+        .highlight {
+          background-color: $primary;
+        }
+      }
+      &:hover .highlight {
+        background-color: lighten($primary, 45);
+      }
+    }
+    .week-cell {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
