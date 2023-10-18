@@ -2,7 +2,7 @@
 import PageView from '@/views/PageView'
 import { reactive } from 'vue'
 
-const currentPage = reactive(new Array(6).fill(1))
+const currentPage = reactive(new Array(7).fill(1))
 
 function onPageChange(payload, index) {
   currentPage[index] = payload
@@ -16,8 +16,8 @@ const title = '페이지네이션'
   <template #header>
     <div class="main-title">{{ title }}</div>
     <div class="section-tags">
-      <span class="ga-tag label deepblue">gabia ui</span>
-      <span class="ga-tag label deeppurple">vue 3.0</span>
+      <span class="ga-tag label teal">ga-ui-css</span>
+      <span class="ga-tag label purple">vue 3.0</span>
     </div>
   </template>
   <template #body>
@@ -40,9 +40,18 @@ const title = '페이지네이션'
         </div>
       </div>
       <div class="section-body">
-        <GaPagination :id="1" :length="10" justify="left" :current-page="currentPage[1]" :last-page="10" @page-change="onPageChange" />
-        <GaPagination :id="1" :length="10" justify="center" :current-page="currentPage[1]" :last-page="10" @page-change="onPageChange" />
-        <GaPagination :id="1" :length="10" justify="right" :current-page="currentPage[1]" :last-page="10" @page-change="onPageChange" />
+        <div class="wrapper">
+          <h5>- Align Left</h5>
+          <GaPagination :id="1" :length="10" justify="left" :current-page="currentPage[1]" :last-page="10" @page-change="onPageChange" />
+        </div>
+        <div class="wrapper">
+          <h5>- Align Center</h5>
+          <GaPagination :id="1" :length="10" justify="center" :current-page="currentPage[1]" :last-page="10" @page-change="onPageChange" />
+        </div>
+        <div class="wrapper">
+          <h5>- Align Right</h5>
+          <GaPagination :id="1" :length="10" justify="right" :current-page="currentPage[1]" :last-page="10" @page-change="onPageChange" />
+        </div>
       </div>
     </section>
     <section>
@@ -81,7 +90,7 @@ const title = '페이지네이션'
     <section>
       <div class="section-header">
         <div class="section-title">
-          <h3 class="title">버튼 타입</h3>
+          <h3 class="title">테두리</h3>
           <div class="sub-title">Props: border:boolean </div>
         </div>
       </div>
@@ -90,7 +99,7 @@ const title = '페이지네이션'
           <GaPagination :id="5" :border="true" justify="left" :current-page="currentPage[5]" :last-page="10" @page-change="onPageChange" />
         </div>
         <div class="wrapper">
-          <GaPagination :id="5" :border="true" justify="left" type="page" :current-page="currentPage[5]" :last-page="10" @page-change="onPageChange" />
+          <GaPagination :id="5" :border="true" :circle="true" justify="left" type="page" :current-page="currentPage[5]" :last-page="10" @page-change="onPageChange" />
         </div>
       </div>
     </section>
@@ -104,6 +113,19 @@ const title = '페이지네이션'
       <div class="section-body">
         <div class="wrapper">
           <GaPagination :id="6" :circle="true" :border="true" justify="left" :current-page="currentPage[6]" :last-page="10" @page-change="onPageChange" />
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-header">
+        <div class="section-title">
+          <h3 class="title">축소</h3>
+          <div class="sub-title">Props: compact:boolean </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="wrapper">
+          <GaPagination :id="7" :compact="true" justify="left" :current-page="currentPage[7]" :last-page="10" @page-change="onPageChange" />
         </div>
       </div>
     </section>

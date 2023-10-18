@@ -8,15 +8,16 @@ $tagLineHeight: 8px;
   border-style: solid;
   border-radius: 0.6em;
   margin: 3px;
+  text-align: center;
   &.line {
-    border-width: ($tagLineHeight / 2);
+    border-width: ($tagLineHeight * 0.5);
     width: $tagLineWidth;
     min-width: 30px;
     border-color: $baseTagColor;
   }
   &.dot {
-    border-radius: ($tagDotSize / 2);
-    border-width: ($tagDotSize / 2);
+    border-radius: ($tagDotSize * 0.5);
+    border-width: ($tagDotSize * 0.5);
     width:0;
     height:0;
     border-color: $baseTagColor;
@@ -61,7 +62,11 @@ $tagLineHeight: 8px;
 .ga-tags {
   width: 100%;
   display: inline-flex;
+  flex-wrap: wrap;
   overflow-x: auto;
+  .ga-tag {
+    min-width: 50px;
+  }
   &.tagMap {
     flex-wrap: wrap;
   }
@@ -95,7 +100,7 @@ $tagLineHeight: 8px;
 
 }
 
-@each $color, $values in $brandColors{
+@each $color, $values in join($brandColors, $stateColors){
   $bgColor: #{nth($values, 1)};
   $hoverColor: #{nth($values, 2)};
   $textColor: #{nth($values, 3)};

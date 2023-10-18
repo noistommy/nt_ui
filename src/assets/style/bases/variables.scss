@@ -4,7 +4,9 @@
     --bgc: #{$background};
     --txt: #{$baseFontColor};
     --brd: #{$borderColor};
-    --suf: #{$surface};
+    --suf: #{$surface1};
+    --suf1: #{$surface2};
+    --suf2: #{$surface3};
     --hover-suf: #{darken($surface, 10)};
 }
 $amount: 0.5;
@@ -63,6 +65,7 @@ h5,.h5 {font-size: $h5;}
 .primary {
     background-color: $primary;
     color: $primaryText;
+    border-color: $primary;
     //box-shadow: 0 0 0 1px $primary inset;
     &.dark {
         background-color:$darkPrimary;
@@ -70,15 +73,34 @@ h5,.h5 {font-size: $h5;}
     &.darker {
         background-color:$darkerPrimary;
     }
+    &-text {
+        color: $primary;
+    }
+    &-bg {
+        background-color: $primary;
+    }
+    &-border {
+        border-color: $primary !important;
+    }
 }
 .secondary {
     color: $secondaryText;
     background-color: $secondary;
+    border-color: $primary;
     &.dark {
         background-color: $darkSecondary;
     }
     &.darker {
         background-color: $darkerSecondary;
+    }
+    &-text {
+        color: $secondary;
+    }
+    &-bg {
+        background-color: $secondary;
+    }
+    &-border {
+        border-color: $secondary !important;
     }
 }
 .surface {
@@ -142,6 +164,7 @@ h5,.h5 {font-size: $h5;}
 }
 
 @each $color, $value in $stateColors {
+    .#{$color},
     .ga-#{$color} {
         background-color: nth($value, 1) !important;
         color: $white !important;
@@ -159,7 +182,7 @@ h5,.h5 {font-size: $h5;}
             border-color: nth($value, 2) !important;
         }
         &.light {
-            background-color: lighten(nth($value, 1), 35) !important;
+            background-color: nth($value, 4) !important;
             color: nth($value, 1) !important;
             border-color: nth($value, 2) !important;
         }
@@ -171,45 +194,45 @@ h5,.h5 {font-size: $h5;}
 //.attention{background-color:$attention;}
 //.importance{background-color:$importance;}
 //.info{background-color:$secondary;}
-
- * {
-     // ----- FireFox -----
-     // scrollbar-color: <막대 색상> <트랙 색상>
-     // scrollbar-width: thin | none | auto
-     scrollbar-color: $thumbBackground $trackBackground;
-     scrollbar-width: thin;
-
-     // ----- Internet Explorer -----
-     // scrollbar-face-color: <막대 색상>
-     // scrollbar-track-color: <트랙 색상>
-     // scrollbar-arrow-color: <양 끝 화살표 색상>
-     scrollbar-face-color: $thumbBackground;
-     scrollbar-track-color: $trackBackground;
-     scrollbar-arrow-color: #f1f1f1;
-     // ----- Webkit(Chrome, Edge, Safari) -----
-     &::-webkit-scrollbar{
-         // 스크롤바의 크기를 정의합니다.
-         // (width - 세로 스크롤 두께) (height - 가로 스크롤 두께)
-         width: $customScrollbarWidth+px;
-         height: $customScrollbarHeight+px;
-     }
-     &::-webkit-scrollbar-thumb{
-         // 스크롤바의 막대 색상을 정의합니다.
-         background-color: $trackBackground;
-         border-radius: $thumbBorderRadius+px;
-         border:$thumbBorderWidth+px solid $thumbBorderColor;
-     }
-     &:hover::-webkit-scrollbar-thumb {
-         background-color: $thumbBackground;
-     }
-     &::-webkit-scrollbar-track{
-         // 스크롤바의 트랙 색상을 정의합니다.
-         background-color: $trackBackground;
-     }
- //     &::-webkit-scrollbar-button{
- //         // 스크롤바의 버튼 색상을 정의합니다.
- //     }
- }
+//
+// * {
+//     // ----- FireFox -----
+//     // scrollbar-color: <막대 색상> <트랙 색상>
+//     // scrollbar-width: thin | none | auto
+//     scrollbar-color: $thumbBackground $trackBackground;
+//     scrollbar-width: thin;
+//
+//     // ----- Internet Explorer -----
+//     // scrollbar-face-color: <막대 색상>
+//     // scrollbar-track-color: <트랙 색상>
+//     // scrollbar-arrow-color: <양 끝 화살표 색상>
+//     scrollbar-face-color: $thumbBackground;
+//     scrollbar-track-color: $trackBackground;
+//     scrollbar-arrow-color: #f1f1f1;
+//     // ----- Webkit(Chrome, Edge, Safari) -----
+//     &::-webkit-scrollbar{
+//         // 스크롤바의 크기를 정의합니다.
+//         // (width - 세로 스크롤 두께) (height - 가로 스크롤 두께)
+//         width: $customScrollbarWidth+px;
+//         height: $customScrollbarHeight+px;
+//     }
+//     &::-webkit-scrollbar-thumb{
+//         // 스크롤바의 막대 색상을 정의합니다.
+//         background-color: $trackBackground;
+//         border-radius: $thumbBorderRadius+px;
+//         border:$thumbBorderWidth+px solid $thumbBorderColor;
+//     }
+//     &:hover::-webkit-scrollbar-thumb {
+//         background-color: $thumbBackground;
+//     }
+//     &::-webkit-scrollbar-track{
+//         // 스크롤바의 트랙 색상을 정의합니다.
+//         background-color: $trackBackground;
+//     }
+// //     &::-webkit-scrollbar-button{
+// //         // 스크롤바의 버튼 색상을 정의합니다.
+// //     }
+// }
 
  //.dark-mode {
  //    //* {

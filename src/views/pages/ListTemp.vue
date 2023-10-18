@@ -13,7 +13,7 @@ const title = '목록'
   <template #header>
     <div class="main-title">{{ title }}</div>
     <div class="section-tags">
-      <span class="ga-tag label deepblue">gabia ui</span>
+      <span class="ga-tag label teal">ga-ui-css</span>
     </div>
   </template>
   <template #body>
@@ -61,7 +61,7 @@ const title = '목록'
       </div>
       <div class="section-body">
         <div class="ga-list selection">
-          <div v-for="(item, i) in 5" :key="item" :class="{active: i === selectedItem}" class="item" @click="selectedItem = i">아이템 {{ item }}</div>
+          <div v-for="(item, i) in 5" :key="item" :class="{checked: i === selectedItem}" class="item" @click="selectedItem = i">아이템 {{ item }}</div>
         </div>
       </div>
     </section>
@@ -75,6 +75,37 @@ const title = '목록'
       <div class="section-body">
         <div class="ga-list selection bordered">
           <div v-for="(item, i) in 5" :key="item" :class="{active: i === selectedItem1}" class="item" @click="selectedItem1 = i">아이템 {{ item }}</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-header">
+        <div class="section-title">
+          <h3 class="title">축소</h3>
+          <div class="sub-title"></div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="ga-list compact">
+          <div v-for="item in 5" :key="item" class="item">아이템 {{ item }}</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-header">
+        <div class="section-title">
+          <h3 class="title">제목, 내용</h3>
+          <div class="sub-title"></div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="ga-list">
+          <div v-for="item in 5" :key="item" class="item">
+            <div class="item-title">
+              <div class="main-title">아이템 {{ item }}</div>
+              <div class="sub-title">아이템 {{ item }} 입니다.</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -108,6 +139,24 @@ const title = '목록'
               <img src="" alt="" />
             </div>
             <div class="item-title">아이템 {{ item }}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-header">
+        <div class="section-title">
+          <h3 class="title">시간 순서 목록</h3>
+          <div class="sub-title"></div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="ga-list timeline connect selection">
+          <div v-for="(item, i) in 5" :key="item" class="item" :class="{active: i === selectedItem1}">
+            <div class="item-title">
+              <div class="main-title">아이템 {{ item }}</div>
+              <div class="sub-title">아이템 {{ item }} 입니다.</div>
+            </div>
           </div>
         </div>
       </div>

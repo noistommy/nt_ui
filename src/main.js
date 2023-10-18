@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 
 import '@/assets/style/vendor/font-awesome-6.1.1.scss'
-import '@/assets/fonts/typography.scss'
-import '@/assets/style/index.scss'
+// import '@/assets/fonts/typography.scss'
+// import '@/assets/style/index.scss'
+
+import '@/assets/css/ga_ui.min.css'
 
 // GaTeleport need 'mill' modules
 import GabiaUi from '@/packages'

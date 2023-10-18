@@ -1,5 +1,6 @@
 <script setup>
 import PageView from '@/views/PageView'
+import { COLOR_PALETTE } from "@/resource";
 import { ref } from 'vue'
 
 const title = ref('버튼')
@@ -16,8 +17,7 @@ const status = [
 ]
 
 const sizeType = [ 'tiny', 'small', 'medium', 'large', 'huge', 'massive']
-const colors = ['red', 'orange', 'yellow', 'lightgreen', 'green', 'lightblue', 'deepblue', 'deeppurple', 'purple', 'brown', 'gray']
-
+const colors = COLOR_PALETTE;
 const buttonGroup = ['재생', '정지', '일시정지', '재시작', '종료']
 const selectedButton = ref('재생')
 const selectedButton1 = ref('재생')
@@ -29,7 +29,7 @@ const selectedButton2 = ref('재생')
     <template #header>
       <div class="main-title">{{ title }}</div>
       <div class="section-tags">
-        <span class="ga-tag label deepblue">gabia ui</span>
+        <span class="ga-tag label teal">ga-ui-css</span>
       </div>
     </template>
     <template #body>
@@ -43,6 +43,12 @@ const selectedButton2 = ref('재생')
         <div class="section-body">
           <button class="ga-button">기본 버튼</button>
         </div>
+<!--        <pre>-->
+<!--          <code class="language-markup">-->
+<!--            <span v-text="`<button class='ga-button'>기본 버튼</button>`"></span>-->
+<!--            <span v-text="`    <button class='ga-button'>기본 버튼</button>`"></span>-->
+<!--          </code>-->
+<!--        </pre>-->
       </section>
       <section>
         <div class="section-header">
@@ -203,7 +209,7 @@ const selectedButton2 = ref('재생')
         <div class="section-body">
           <button v-for="item in brand" :key="item.name" :class="item.name" class="ga-button compact">{{ item.title }}</button>
           <button v-for="item in status" :key="item.name" :class="item.name" class="ga-button compact">{{ item.title }}</button>
-          <button class="ga-button icon compact deeppurple">
+          <button class="ga-button icon compact purple">
             <i class="fa fa-bird"></i>
           </button>
         </div>
@@ -224,12 +230,12 @@ const selectedButton2 = ref('재생')
           <div class="section-title">
             <h3 class="title">색상</h3>
             <div class="sub-title">
-              <span v-for="item in colors" :key="item" :class="item" class="ga-tag dot" v-ga-tooltip="item"></span>
+              <span v-for="item in colors" :key="item.name" :class="item.name" class="ga-tag dot" v-ga-tooltip="item.text"></span>
             </div>
           </div>
         </div>
         <div class="section-body">
-          <button v-for="item in colors" :key="item" :class="item" class="ga-button">{{ item }}</button>
+          <button v-for="item in colors" :key="item.name" :class="item.name" class="ga-button">{{ item.text }}</button>
         </div>
       </section>
       <section>
@@ -287,7 +293,7 @@ const selectedButton2 = ref('재생')
               <div
                   v-for="btn in buttonGroup"
                   :key="btn"
-                  :class="{ deeppurple: btn === selectedButton2 }"
+                  :class="{ purple: btn === selectedButton2 }"
                   class="ga-button outline"
                   @click="selectedButton2 = btn"
               >

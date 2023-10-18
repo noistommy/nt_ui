@@ -182,7 +182,7 @@ $calendarBorderColor: #d7dae2;
         }
       }
       &:hover .highlight {
-        background-color: lighten($primary, 45);
+        background-color: lighten(desaturate($primary, 70%), 45);
       }
     }
     .week-cell {

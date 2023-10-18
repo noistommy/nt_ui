@@ -23,6 +23,7 @@
     &-nav, &-num {
       display: inline-block;
       min-width: 2em;
+      max-height: 2em;
       line-height: 1em;
       text-align: center;
       font-weight: 500;
@@ -62,6 +63,7 @@
     .pagination {
       &-info {
         font-size: 14px;
+        max-height: 2em;
         line-height: 1em;
         text-align: center;
         font-weight: 500;
@@ -83,19 +85,19 @@
         }
       }
     }
-    //&.circle {
-    //  .pagination-nav {
-    //    &:first-child {
-    //      border-bottom-left-radius: 17px;
-    //      border-top-left-radius: 17px;
-    //    }
-    //
-    //    &:last-child {
-    //      border-bottom-right-radius: 17px;
-    //      border-top-right-radius: 17px;
-    //    }
-    //  }
-    //}
+    &.circle {
+      .pagination-nav {
+        &:first-child {
+          border-bottom-left-radius: 17px;
+          border-top-left-radius: 17px;
+        }
+
+        &:last-child {
+          border-bottom-right-radius: 17px;
+          border-top-right-radius: 17px;
+        }
+      }
+    }
   }
   &.compact {
     .pagination {
@@ -104,9 +106,7 @@
         //border: 1px solid #d6d6d6;
       }
       &-num, &-nav {
-        min-width: 1.75em;
-        line-height: 0.75em;
-        padding: 0.375em;
+        font-size: 0.75em;
         margin: 0 3px;
       }
     }

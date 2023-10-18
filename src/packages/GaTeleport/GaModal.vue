@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="isVisible" class="ga-modal2" :style="{ '--offset': `${(id % 5) * 20}px` }">
+    <div v-if="isVisible" class="ga-modal" :style="{ '--offset': `${(id % 5) * 20}px` }">
       <div class="ga-modal-background" @click="closeModalToClick" />
       <div class="ga-modal-container">
         <component :is="compContents" :modal-id="id" v-bind="props" @close="closeModal" />

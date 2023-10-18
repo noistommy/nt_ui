@@ -12,7 +12,6 @@ const setOption = modalOption => {
 }
 
 const init = () => {
-  console.log('init')
   const emitter = mitt()
   const show = ({ comp, props, options, handler }) => {
     emitter.emit('show-modal', { comp, props, options, handler })
@@ -31,6 +30,6 @@ export default {
     app.config.globalProperties.$gaModal = init()
     extendOptions = setOption(options)
     const extendComp = { extends: GaTeleport, props: { options: { type: Object, default: () => extendOptions } } }
-    app.component('ga-teleport', extendComp)
+    app.component('GaTeleport', extendComp)
   }
 }

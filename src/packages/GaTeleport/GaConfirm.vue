@@ -1,5 +1,5 @@
 <template>
-  <div class="ga-modal2" :style="{ '--offset': `${(id % 5) * 20}px` }">
+  <div class="ga-modal" :style="{ '--offset': `${(id % 5) * 20}px` }">
     <div class="ga-modal-background" />
     <div class="ga-modal-container">
       <div class="modal confirm">

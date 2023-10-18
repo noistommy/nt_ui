@@ -4,7 +4,7 @@
       <h1 class="section-title">Button</h1>
       <div class="section-tags">
         <span class="ga-tag label green">Vue 3.0</span>
-        <span class="ga-tag label deepblue">gabia ui</span>
+        <span class="ga-tag label teal">ga-ui-css</span>
       </div>
     </div>
     <div class="section-body">
@@ -60,7 +60,7 @@
           <button class="ga-button outline secondary circle">
             비밀번호 재발급
           </button>
-          <button class="ga-button outline ga-deepblue-light circle compact">
+          <button class="ga-button outline ga-teal-light circle compact">
             active
           </button>
           <button class="ga-button outline ga-primary-light circle compact">

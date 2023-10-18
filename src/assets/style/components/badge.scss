@@ -5,13 +5,14 @@ $hoverButtonBg: var(--hover-suf);
 $badgeFontSize: relativePx(11);
 $badgeFontWeight: 600;
 $badgeSize: relativePx(16);
+$badgeMarkSize: 8px;
 $baseBadgeColor: $baseButtonBg;
 $badgeBorderRadius: $badgeSize;
 $badgeVerticalPadding: 4px;
 $badgeHorizontalPadding: 6px;
 $badgePadding: $badgeVerticalPadding $badgeHorizontalPadding;
 $badgeShadow: -2px 2px 0px 0px rgba(0, 0, 0, 0.2);
-$badgeOffset: ($badgeSize / 2);
+$badgeOffset: ($badgeSize * 0.5);
 $badgeOffsetLeft: calc(100% - $badgeOffset);
 
 .ga-badge {
@@ -29,17 +30,21 @@ $badgeOffsetLeft: calc(100% - $badgeOffset);
   background-color: $hoverButtonBg;
   /*color: #ffffff;*/
   /*text-shadow: 0 0 2px #909090;*/
+  border: 1px solid #ffffff;
   position: absolute;
   z-index: 999;
   top: $badgeOffset * -1;
   right: $badgeOffset * -1;
   &.shadow {
     box-shadow: $badgeShadow;
+    //border: 0;
   }
   &.mark {
-    min-width: 5px;
-    min-height: 5px;
+    min-width: $badgeMarkSize;
+    min-height: $badgeMarkSize;
     padding: 0;
+    top: 1px;
+    right: 1px;
   }
   &.align {
     &-left {

@@ -3,6 +3,7 @@
 @import './theme/theme';
 // base
 @import './bases/reset';
+@import './bases/transition';
 @import './bases/variables';
 // components
 @import './components/button';
@@ -22,6 +23,7 @@
 @import './components/tabs';
 @import './components/tag';
 @import './components/modal';
-@import './components/modal2';
 @import './components/spinner';
 @import './components/toast';
+@import './components/message';
+@import './components/card';

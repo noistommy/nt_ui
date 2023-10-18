@@ -1,12 +1,12 @@
 <template>
-  <label class="ga-switch" :class="[type, { round }, { inside }]">
+  <label class="ga-switch" :class="[type, { round }, { inside }, { reverse }, color, disabled]">
     <input v-model="switchValue" type="checkbox" checked />
     <template v-if="type === 'slide'">
       <span class="switch" />
     </template>
     <template v-if="type === 'button'">
-      <span class="on active"><slot name="on">ON</slot></span>
-      <span class="off"><slot name="off">OFF</slot></span>
+      <div class="on active"><slot name="on">ON</slot></div>
+      <div class="off"><slot name="off">OFF</slot></div>
     </template>
   </label>
 </template>
@@ -27,6 +27,10 @@ export default {
       type: Boolean,
       default: false
     },
+    reverse: {
+      type: Boolean,
+      default: false
+    },
     onValue: {
       type: [String, Boolean],
       default: true
@@ -42,6 +46,14 @@ export default {
     minWidth: {
       type: String,
       default: '42'
+    },
+    color: {
+      type: String,
+      default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

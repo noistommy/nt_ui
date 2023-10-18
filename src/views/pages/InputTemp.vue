@@ -2,6 +2,14 @@
 import PageView from '@/views/PageView'
 import { ref } from 'vue'
 
+const status = [
+  { name: 'success', title: '성공' },
+  { name: 'danger', title: '위험' },
+  { name: 'info', title: '정보' },
+  { name: 'attention', title: '주의' },
+  { name: 'importance', title: '중요' }
+]
+
 const isEdit = ref(false)
 
 const title = '텍스트 입력'
@@ -12,7 +20,8 @@ const title = '텍스트 입력'
   <template #header>
     <div class="main-title">{{ title }}</div>
     <div class="section-tags">
-      <span class="ga-tag label deepblue">gabia ui</span>
+      <span class="ga-tag label teal">ga-ui-css</span>
+      <span class="ga-tag label purple">vue 3.0</span>
     </div>
   </template>
   <template #body>
@@ -56,6 +65,21 @@ const title = '텍스트 입력'
         <div class="ga-input">
           <input type="text" placeholder="읽기만 가능" readonly />
         </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-header">
+        <div class="section-title">
+          <h3 class="title">상태별</h3>
+          <div class="sub-title"></div>
+        </div>
+      </div>
+      <div class="section-body">
+        <template v-for="item in status" :key="item.name">
+          <div class="ga-input" :class="item.name">
+            <input type="text" :placeholder="item.title" />
+          </div>
+        </template>
       </div>
     </section>
     <section>
@@ -169,7 +193,7 @@ const title = '텍스트 입력'
       <div class="section-body">
         <div class="ga-input badge">
           <input type="text" placeholder="텍스트 입력">
-          <div class="ga-badge float deeppurple">
+          <div class="ga-badge float purple">
             <i class="fa fa-arrow-up"></i>
           </div>
         </div>
@@ -222,7 +246,7 @@ const title = '텍스트 입력'
       <div class="section-body">
         <div class="ga-input labeled right">
           <input type="text" placeholder="텍스트 입력">
-          <label class="ga-deeppurple">원</label>
+          <label class="ga-purple">원</label>
         </div>
         <div class="ga-input labeled left">
           <input type="text" placeholder="이름을 입력" />

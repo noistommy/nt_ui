@@ -112,7 +112,7 @@ $hoverButtonBg: var(--hover-suf);
         border-radius: 2em;
     }
     &.outline {
-        background-color: $background;
+        background-color: $white;
         //background-color: transparent;
         //border:1px solid $borderColor;
         box-shadow: 0 0 0 1px $borderColor inset;
@@ -263,7 +263,7 @@ $hoverButtonBg: var(--hover-suf);
                 box-shadow: 0 0 0 1px $hoverColor inset;
             }
             &.outline {
-                background-color: transparent!important;
+                background-color: $background !important;
                 color: $bgColor!important;
                 box-shadow: 0 0 0 1px $hoverColor inset;
                 &:hover {
@@ -311,7 +311,7 @@ $hoverButtonBg: var(--hover-suf);
                 box-shadow: 0 0 0 1px $hoverColor inset;
             }
             &.outline{
-                background-color: transparent;
+                background-color: $background;
                 color: $value;
                 box-shadow: 0 0 0 1px $hoverColor inset;
                 &.selected,

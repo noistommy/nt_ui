@@ -13,7 +13,6 @@ $panelPadding: $panelVerticalPadding $panelHorizontalPadding;
 
 .ga-panel {
   border: $panelBorder;
-  transition: height 250ms ease;
   margin: $margin;
   .panel-header {
     background-color: $panelBackgroundColor;
@@ -62,15 +61,14 @@ $panelPadding: $panelVerticalPadding $panelHorizontalPadding;
   }
   &.collapse {
     .panel-content {
-      .content-wrapper {
-        display: none;
-      }
+      transition: max-height 200ms;
+      max-height: 0;
+      overflow: auto;
     }
     &.open {
       .panel-content {
-        .content-wrapper {
-          display: block;
-        }
+        height: auto;
+        max-height: 600px;
       }
       .panel-toggle-btn {
         i {

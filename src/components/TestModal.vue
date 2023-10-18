@@ -12,8 +12,8 @@
       </div>
     </div>
     <div class="modal-footer align-right">
-      <button class="ga-button yellow" @click="addModal">생성</button>
-      <button class="ga-button green" @click="returnTest('테스트')">테스트</button>
+      <button class="ga-button secondary" @click="addModal">생성</button>
+<!--      <button class="ga-button green" @click="returnTest('테스트')">테스트</button>-->
       <button class="ga-button primary" @click="addConfirm">{{ pText }}</button>
       <button class="ga-button secondary outline" @click="$emit('close')">{{ nText }}</button>
     </div>

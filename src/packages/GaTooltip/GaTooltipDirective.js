@@ -6,19 +6,19 @@ const showTooltip = (el, binding) => {
 
   setAttributeRef(ttEl, binding)
   document.body.append(ttEl)
-  setPositionRef(el, ttEl)
+  setPositionRef(el, binding, ttEl)
 }
 
 const setAttributeRef = (reel, binding) => {
-  reel.innerHTML = binding.value
+  reel.innerHTML = typeof binding.value === 'string' ? binding.value : binding.value.contents
   reel.classList.add('ga-tooltip', 'theme-dark')
   ref = reel
 }
 
-const setPositionRef = (el, ref) => {
+const setPositionRef = (el, binding, ref) => {
   const w = window.innerWidth
   const h = window.innerHeight
-  let dir = 'top'
+  let dir = binding.arg || 'top'
   let align = 'center'
   const ePos = el.getBoundingClientRect()
   const refPos = ref.getBoundingClientRect()
