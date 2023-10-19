@@ -1,4 +1,5 @@
 import GaCalendar from "@/packages/GaCalendar/GaCalendar";
+import GaCalendarM from "@/packages/GaCalendar/GaCalendarM";
 import GaCheckbox from "@/packages/GaCheckbox/GaCheckbox";
 import GaDatePicker from "@/packages/GaDatePicker/GaDatePicker";
 import GaInput from "@/packages/GaInput/GaInput";
@@ -11,7 +12,7 @@ import GaSelectBox from "@/packages/GaSelectBox/GaSelectBox";
 import GaProgress from "@/packages/GaProgress/GaProgress";
 import GaSlider from "@/packages/GaSlider/GaSlider";
 
-const ga_ui = [GaCalendar, GaCheckbox, GaDatePicker, GaInput, GaPagination, GaRadio, GaSwitch, GaTabs, GaTreeList, GaSelectBox, GaProgress, GaSlider]
+const ga_ui = [GaCalendar, GaCalendarM, GaCheckbox, GaDatePicker, GaInput, GaPagination, GaRadio, GaSwitch, GaTabs, GaTreeList, GaSelectBox, GaProgress, GaSlider]
 const install = (app) => {
   ga_ui.forEach(component => {
     app.component(component.name, component);
@@ -20,5 +21,5 @@ const install = (app) => {
 
 export default {
   install,
-  GaCalendar, GaCheckbox, GaDatePicker, GaInput, GaPagination, GaRadio, GaSwitch, GaTabs, GaTreeList, GaSelectBox, GaProgress, GaSlider
+  GaCalendar, GaCalendarM, GaCheckbox, GaDatePicker, GaInput, GaPagination, GaRadio, GaSwitch, GaTabs, GaTreeList, GaSelectBox, GaProgress, GaSlider
 }

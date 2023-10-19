@@ -47,6 +47,17 @@ const title = '달력'
         <GaCalendar class="selection" />
       </div>
     </section>
+    <section>
+      <div class="section-header">
+        <div class="section-title">
+          <h3 class="title">월 선택</h3>
+          <div class="sub-title">Props: gridBorder:boolean</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <GaCalendarM class="selection" />
+      </div>
+    </section>
   </template>
 </PageView>
 </template>

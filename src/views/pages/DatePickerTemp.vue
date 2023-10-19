@@ -25,6 +25,17 @@ const title = '날짜 선택'
         <GaDatePicker />
       </div>
     </section>
+    <section>
+      <div class="section-header">
+        <div class="section-title">
+          <h3 class="title">월 선택</h3>
+          <div class="sub-title"></div>
+        </div>
+      </div>
+      <div class="section-body">
+        <GaDatePicker date-type="month" />
+      </div>
+    </section>
   </template>
 </PageView>
 </template>

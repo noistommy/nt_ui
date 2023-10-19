@@ -47,6 +47,12 @@ const routes = [
     props: true
   },
   {
+    path: '/foundation/form',
+    name: 'form',
+    component: () => { return import(`../views/pages/FormTemp`) },
+    props: true
+  },
+  {
     path: '/element/button',
     name: 'button',
     component: () => { return import(`../views/pages/ButtonTemp`) },
@@ -186,10 +192,10 @@ const routes = [
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL),
   history: createWebHashHistory(),
+  routes,
   scrollBehavior () {
     return { x: 0, y: 0 }
   },
-  routes,
 })
 
 export default router

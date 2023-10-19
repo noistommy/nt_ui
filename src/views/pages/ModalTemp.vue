@@ -33,7 +33,7 @@ function showConfirm() {
 }
 </script>
 
-<template>
+<template >
 <PageView>
   <template #header>
     <div class="main-title">{{ title }}</div>
@@ -44,8 +44,38 @@ function showConfirm() {
   </template>
   <template #usage>
     <div class="ga-card attached">
-      <h3>모달</h3>
+      <h3>모달 사용법 및 설정</h3>
       <div class="footer">
+        <div class="ga-list code">
+          <div class="item comment">// 프로젝트 전역 모듈로 등록</div>
+          <div class="item comment">// main.js</div>
+          <div class="item">import GaModal from package_path/GaTeleport</div>
+          <div class="item">const app = createApp(App)</div>
+          <div class="item">app.use(GaModal, {</div>
+          <div class="item depth-1 comment">// option 1. 백그라운드 클릭으로 닫기  설정</div>
+          <div class="item depth-1">clickToClose: true | false,</div>
+          <div class="item depth-1 comment">// option 2. ESC 키로 닫기  설정</div>
+          <div class="item depth-1">escapeToClose: true | false</div>
+          <div class="item">})</div>
+          <div class="item"></div>
+          <div class="item comment">// 실행</div>
+          <div class="item comment">// event 발생 시</div>
+          <div class="item comment">// this.$gaModal({ comp: component, props: props, options: options } </div>
+          <div class="item comment">//예제</div>
+          <div class="item">this.$gaModal({</div>
+          <div class="item depth-1">comp: ModalComponent 또는 'confirm',</div>
+          <div class="item depth-1">props: {</div>
+          <div class="item depth-2">title: '모달 제목', <span class="comment">// modal header text</span></div>
+          <div class="item depth-2">description: '모달 내용',<span class="comment">// modal body text</span>ㅍ</div>
+          <div class="item depth-2">pText: '저장',<span class="comment">// 실행 버튼 텍스트</span></div>
+          <div class="item depth-2">nText: '취소',<span class="comment">// 취소 / 닫기 버튼 텍스트</span></div>
+          <div class="item depth-1">},</div>
+          <div class="item depth-1">options: {</div>
+          <div class="item depth-2">clickToClose: true,</div>
+          <div class="item depth-2">escapeToClose: true,</div>
+          <div class="item depth-1">}</div>
+          <div class="item">})</div>
+        </div>
       </div>
     </div>
   </template>

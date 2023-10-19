@@ -17,6 +17,41 @@ const htmlContents = {
       <span class="ga-tag label blue">directive</span>
     </div>
   </template>
+  <template #usage>
+    <div class="ga-card attached">
+      <h3>툴팁 사용법 및 설정</h3>
+      <div class="footer">
+        <div class="ga-list code">
+          <div class="item comment">// 프로젝트 전역 모듈로 등록</div>
+          <div class="item comment">// main.js</div>
+          <div class="item">import GaTooltip from package_path/GaTooltip</div>
+          <div class="item">const app = createApp(App)</div>
+          <div class="item">app.use(GaTooltip)</div>
+          <div class="item"></div>
+          <div class="item comment">// 적용</div>
+          <div class="item comment">// 리터럴 텍스트 타입</div>
+          <div class="item">
+            <div v-text="`<div v-ga-tootip='\`툴팁 내용\`'>contents</div>`"></div>
+          </div>
+          <div class="item comment">// Object 타입</div>
+          <div class="item">
+            <div v-text="`<div v-ga-tootip='{ contents: '툴팁 내용' }'>contents</div>`"></div>
+          </div>
+          <div class="item comment">// html contents 타입</div>
+          <div class="item">
+            <div v-text="`<div v-ga-tootip='htmlContents'>contents</div>`"></div>
+          </div>
+          <div class="item comment">// 방향 지정</div>
+          <div class="item">
+            <div v-text="`<div v-ga-tootip:top='{ contents: '툴팁 내용' }'>contents</div>`"></div>
+          </div>
+          <div class="item">
+            <div v-text="`<div v-ga-tootip:bottom='{ contents: '툴팁 내용' }'>contents</div>`"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
   <template #body>
     <section>
       <div class="section-header">

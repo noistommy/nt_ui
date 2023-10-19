@@ -14,6 +14,7 @@ $itemHeight: 37px;
     padding: $inputPadding;
     line-height: $inputLineHeight;
     vertical-align: baseline;
+    background-color: var(--bgc);
     flex-grow: 1;
     .item-icon {
       margin-right: 10px;

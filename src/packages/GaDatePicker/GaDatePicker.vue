@@ -7,7 +7,12 @@
     <teleport to="body">
       <transition name="slide-fade">
         <div v-if="isOpen" class="datepicker teleport" :class="[direct]" :style="position">
-          <ga-calendar class="selection" :current="selectedDate" @select-day="setSelectDate" />
+          <template v-if="dateType === 'date'">
+            <GaCalendar class="selection" :current="selectedDate" @select-day="setSelectDate" />
+          </template>
+          <template v-else>
+            <GaCalendarM class="selection" :current="selectedDate" @select-day="setSelectDate" />
+          </template>
         </div>
       </transition>
     </teleport>
@@ -16,13 +21,14 @@
 
 <script>
 import GaCalendar from '../GaCalendar/GaCalendar'
+import GaCalendarM from '../GaCalendar/GaCalendarM'
 // const regS = /[{}[\]/?.,;:|)*~`!^\-_+<>@#$%&\\=('"]|\s/g
 const regW = /[A-Z|a-z]+/g
 const regN = /[0-9]+/g
 
 export default {
   name: 'GaDatePicker',
-  components: { GaCalendar },
+  components: { GaCalendar, GaCalendarM },
   props: {
     date: {
       type: [Date, String],
@@ -43,6 +49,10 @@ export default {
     timeFormat: {
       type: String,
       default: 'hh:mm:ss'
+    },
+    dateType: {
+      type: String,
+      default: 'date' // month
     }
   },
   data() {
@@ -50,7 +60,7 @@ export default {
       isOpen: false,
       selectedDate: null,
       direct: 'down',
-      position: {}
+      position: {},
     }
   },
   watch: {

@@ -101,7 +101,7 @@
       display: none !important;
     }
   }
-  &.unit {
+  &[class*='unit'] {
     input {
       padding-right: 2.5em !important;
     }
@@ -109,8 +109,15 @@
       content: attr(data-unit);
       position: absolute;
       top: 50%;
-      right: 0;
-      transform: translate(-100%, -50%);
+      right: 10px;
+      transform: translate(0, -50%);
+    }
+  }
+  &.unit {
+    @for $i from 1 through 5 {
+      &-#{$i} {
+        input {padding-right: $i + em !important;}
+      }
     }
   }
   &.badge {

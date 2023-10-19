@@ -1,5 +1,8 @@
 $issue_red: #D75757;
 $calendarBorderColor: #d7dae2;
+$dateCellColor: #999999;
+
+$dateCellHoverColor: #e5f1fb;
 .ga-datepicker {
   &.fluid {
     width: 100%;
@@ -20,8 +23,9 @@ $calendarBorderColor: #d7dae2;
     background-color: #fff;
     display: flex;
     padding: 10px 0;
-    border-bottom: 1px solid #ebebeb;
+    //border-bottom: 1px solid #ebebeb;
     .current-date {
+      text-align: center;
       padding: 0 10px;
       flex-grow: 1;
       span {
@@ -35,8 +39,9 @@ $calendarBorderColor: #d7dae2;
       }
     }
     .control-btn {
+      font-size: 1.2em;
       cursor: pointer;
-      background-color: #ebebeb;
+      background-color: transparent;
       padding: 8px;
       border-radius: 50%;
       line-height: 1;
@@ -54,17 +59,16 @@ $calendarBorderColor: #d7dae2;
     --cell-gap: 1px;
     position: relative;
     width: calc((var(--cell-size) + var(--cell-gap)) * 7 + 1px);
-    height: calc((var(--cell-size) + var(--cell-gap)) * 7 + 1px);
     background-color: #fff;
     .cell {
       background-color: #fff;
       position: absolute;
       min-width: var(--cell-size);
-      height: var(--cell-size);
+      min-height: var(--cell-size);
       top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
       left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-      transition: 250ms linear;
-      color: #333333;
+      //transition: 250ms linear;
+      color: $dateCellColor;
       &.today {
         color: #333333;
       }
@@ -89,7 +93,7 @@ $calendarBorderColor: #d7dae2;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-weight: 900;
+        //font-weight: 900;
         font-size: 0.8em;
       }
       &.sun:not(.disabled),
@@ -112,7 +116,6 @@ $calendarBorderColor: #d7dae2;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-weight: 900;
         font-size: 0.8em;
         color: inherit;
       }
@@ -149,6 +152,30 @@ $calendarBorderColor: #d7dae2;
       }
     }
   }
+  .month-cell-wrapper {
+    --grid-size: 4;
+    --cell-size: 65px;
+    .month-cell {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      border-radius: 4px;
+      .tile-num {}
+      .tile-name {}
+      &:hover {
+        background-color: $dateCellHoverColor;
+      }
+      &.selected {
+        color: #fff;
+        background-color: $primary;
+      }
+    }
+    &.grid {
+      width: calc((var(--cell-size) + var(--cell-gap)) * 4 + 1px);
+      grid-template-rows: repeat(3, var(--cell-size));
+    }
+  }
   .week-wrapper {
     display: flex;
     gap: 2px;
@@ -174,7 +201,7 @@ $calendarBorderColor: #d7dae2;
       &.selected:not(.disabled) {
         .tile {
           font-size: 1rem;
-          font-weight: 900;
+          //font-weight: 900;
           color: #ffffff;
         }
         .highlight {
@@ -182,7 +209,8 @@ $calendarBorderColor: #d7dae2;
         }
       }
       &:hover .highlight {
-        background-color: lighten(desaturate($primary, 70%), 45);
+        background-color: $dateCellHoverColor
+        //background-color: lighten(desaturate($primary, 70%), 45);
       }
     }
     .week-cell {

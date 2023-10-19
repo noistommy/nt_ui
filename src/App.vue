@@ -1,8 +1,18 @@
 <script setup>
 import WavesSvg from '@/components/WavesSvg'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import GaTeleport from "@/packages/GaTeleport/GaTeleport";
+
+// target ref 지정
+const root = ref(null)
+// route 데이터 사용 목적
+const route = useRoute()
+// watch route로 페이지 변경 감지
+// cb: scroll 초기화
+watch(route, () => {
+      root.value.scrollTop = 0
+})
 
 const current = computed(() => {
   return useRoute().name
@@ -14,6 +24,7 @@ const baseList = [
   { name: 'typography', title: '타이포그래피' },
   { name: 'color', title: '색상' },
   { name: 'grid', title: '그리드 시스템' },
+  { name: 'form', title: '폼 시스템' },
 ]
 const elementList = [
   { name: 'button', title: '버튼' },
@@ -91,7 +102,7 @@ function selectMenu(target) {
         </div>
       </div>
     </div>
-    <div class="right-side contents">
+    <div class="right-side contents" ref="root">
       <router-view/>
     </div>
   </div>
@@ -108,6 +119,8 @@ header {
     text-align: center;
     padding: 50px 0;
   }
+}
+.wave-wrapper {
 }
 #Container {
   display: flex;

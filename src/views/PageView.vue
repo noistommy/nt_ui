@@ -46,9 +46,12 @@
 }
 
 .ga-list.code {
-  .item:not(.secondary-text) {
+  .item:not(.comment) {
     color: #909090;
     font-weight: 700;
+  }
+  .comment {
+    color: #ccc;
   }
   .depth-1 { margin-left: 50px;}
   .depth-2 { margin-left: 100px;}

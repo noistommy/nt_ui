@@ -1,16 +1,16 @@
 <template>
   <div class="ga-calendar" :class="{ bordered: gridBorder }">
     <div class="calendar-head">
+      <span class="control-btn prev-btn" @click.stop="prevMonth">
+        <i class="fa fa-chevron-left"></i>
+      </span>
       <div class="current-date">
-        <span class="h3">{{ currentYear }}년 {{ currentMonth }}월</span>
-        <span class="now small" @click.stop="setToday">
+        <span class="h3">{{ currentYear }}년 {{ setZero(currentMonth) }}월</span>
+        <span v-if="showToday" class="now small" @click.stop="setToday">
           <i class="fa fa-circle-t"></i>
           {{ now.year }}년 {{ now.month }}월 {{ now.day }}일
         </span>
       </div>
-      <span class="control-btn prev-btn" @click.stop="prevMonth">
-        <i class="fa fa-chevron-left"></i>
-      </span>
       <span class="control-btn next-btn" @click.stop="nextMonth">
         <i class="fa fa-chevron-right"></i>
       </span>
@@ -59,6 +59,10 @@ export default {
       default: null
     },
     gridBorder: {
+      type: Boolean,
+      default: false
+    },
+    showToday: {
       type: Boolean,
       default: false
     }
@@ -152,6 +156,9 @@ export default {
     renderCalendar() {
       this.startIndex = getStartDay(this.currentYear, this.currentMonth)
       this.calendarMatrix = setCalendar(this.currentYear, this.currentMonth)
+    },
+    setZero(value) {
+      return value < 10 ? `0${value}` : value
     }
   }
 }

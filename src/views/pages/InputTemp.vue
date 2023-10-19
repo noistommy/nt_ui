@@ -11,6 +11,7 @@ const status = [
 ]
 
 const isEdit = ref(false)
+const inputModel = ref('')
 
 const title = '텍스트 입력'
 </script>
@@ -162,6 +163,9 @@ const title = '텍스트 입력'
         <div class="ga-input unit" data-unit="₩">
           <input type="text" placeholder="텍스트 입력">
         </div>
+        <div class="ga-input unit-4" :data-unit="`${inputModel.length}/30`">
+          <input type="text" v-model="inputModel" placeholder="텍스트 입력">
+        </div>
       </div>
     </section>
     <section>
@@ -251,6 +255,10 @@ const title = '텍스트 입력'
         <div class="ga-input labeled left">
           <input type="text" placeholder="이름을 입력" />
           <label>이름</label>
+        </div>
+        <div class="ga-input labeled right">
+          <input type="text" v-model="inputModel" placeholder="텍스트 입력">
+          <label class="outline">{{ inputModel.length }}/30</label>
         </div>
       </div>
     </section>

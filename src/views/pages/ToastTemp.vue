@@ -57,7 +57,7 @@ const toastContents = computed(() => {
     description: `this is ${activeColor.value} Toast Test`
   }
 })
-const title = 'vue-nt-toast'
+const title = '토스트'
 
 function showToast() {
   toast.show(activeColor.value, toastContents.value, toastOption)
@@ -70,17 +70,13 @@ function setPosition(value) {
 }
 
 function selectRandomNum(limit) {
-  return parseInt(Math.random() * 100) % Number(limit)
+  return parseInt(Math.random * 100) % limit
 }
 
 function randomShow() {
   activeColor.value = brand[selectRandomNum(brand.length)].name
   toastOption.theme = theme[selectRandomNum(theme.length)].name
   showToast()
-}
-
-function startShow() {
-  setInterval(() => randomShow(), 2000)
 }
 
 </script>
@@ -92,6 +88,38 @@ function startShow() {
     <div class="section-tags">
       <span class="ga-tag label teal">ga-ui-css</span>
       <span class="ga-tag label purple">vue 3.0</span>
+    </div>
+  </template>
+  <template #usage>
+    <div class="ga-card attached">
+      <h3>툴팁 사용법 및 설정</h3>
+      <div class="footer">
+        <div class="ga-list code">
+          <div class="item comment">// 프로젝트 전역 모듈로 등록</div>
+          <div class="item comment">// main.js</div>
+          <div class="item">import GaToast from package_path/GaToast</div>
+          <div class="item">const app = createApp(App)</div>
+          <div class="item">app.use(GaToast, <span class="comment">optional //</span>,{</div>
+          <div class="item depth-1"> useTitle: true | false,<span class="comment"> // 제목 사용 여부</span></div>
+          <div class="item depth-1"> useIcon: true | false,<span class="comment">// 아이콘 사용 여부</span></div>
+          <div class="item depth-1"> closeButton: true | false,<span class="comment">// 닫기 버튼 사용 여부</span></div>
+          <div class="item depth-1"> round: true | false,<span class="comment">// 둥근 토스트 사용 여부</span></div>
+          <div class="item depth-1"> theme: null | 'light' | 'icon' | 'icon-bg' | 'line',<span class="comment">// 테마(스타일) 선택</span></div>
+          <div class="item depth-1"> timeout: 5000,<span class="comment">// 유지 시간</span></div>
+          <div class="item depth-1"> clickToClose: true | false,<span class="comment">// 클릭해서 닫기 사용 여부</span></div>
+          <div class="item depth-1"> displayOnTop: true | false,<span class="comment">// 상단에 생성 여부</span></div>
+          <div class="item depth-1"> snackbar: true | false,<span class="comment">스낵바 모드 </span></div>
+          <div class="item depth-1"> freeze: true | false,<span class="comment">토스트 고정 여부. 자동 생성 끄기</span></div>
+          <div class="item">})</div>
+          <div class="item"></div>
+          <div class="item comment">// 적용</div>
+          <div class="item comment">// show toast</div>
+          <div class="item comment">// toast.show( title, contents, options: {} )</div>
+          <div class="item">toast.show( 'success', '성공 했습니다.', options: {</div>
+          <div class="item depth-1"> // 옵션 변경 시 작성</div>
+          <div class="item">})</div>
+        </div>
+      </div>
     </div>
   </template>
   <template #body>
@@ -178,7 +206,7 @@ function startShow() {
           <div class="divide"></div>
           <div class="wrapper">
             <button class="ga-button" :class="activeColor" @click="showToast">테스트 실행</button>
-            <button class="ga-button" :class="activeColor" @click="startShow">랜덤 테스트 실행</button>
+            <button class="ga-button" :class="activeColor" @click="randomShow">랜덤 실행</button>
           </div>
         </div>
       </div>
