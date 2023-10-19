@@ -109,8 +109,6 @@ header {
     padding: 50px 0;
   }
 }
-.wave-wrapper {
-}
 #Container {
   display: flex;
   .menu {
